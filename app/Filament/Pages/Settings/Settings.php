@@ -108,7 +108,7 @@ class Settings extends BaseSettings
                                     TextInput::make('midrants.server_key')
                                         ->required()
                                         ->label("Server Key"),
-                                    Toggle::make('midrants.is_producion')
+                                    Toggle::make('midrants.is_production')
                                         ->required()
                                         ->label('Production'),
                                     Toggle::make('midrants.is_sanitized')

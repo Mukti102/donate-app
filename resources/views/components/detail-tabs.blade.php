@@ -1,6 +1,6 @@
 <div class="bg-white bg-dark rounded-xl md:rounded-xl dark:border dark:border-gray-700 col-span-3 shadow-md p-2 md:p-5">
 <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+    <ul style="list-style-type: none" class="flex flex-wrap -mb-px text-sm font-medium list-none text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
         <li class="me-2" role="presentation">
             <button class="inline-block text-sm md:text-lg capitalize p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#story" type="button" role="tab" aria-controls="story" aria-selected="false">Cerita</button>
         </li>
@@ -17,11 +17,11 @@
 </div>
 <div id="default-tab-content">
     <div class="hidden p-2 md:p-4 dark:bg-gray-800 rounded-lg bg-gray-50 " id="story" role="tabpanel" aria-labelledby="story-tab">
-     <p class="text-sm text-gray-700 dark:text-gray-400">{!! $campaign->story !!}</p>
+     <article class="prose md:text-base text-sm  text-gray-700 dark:text-gray-400">{!! $campaign->story !!}</article>
 
     </div>
     <div class="hidden p-2 md:p-4 dark:bg-gray-800 rounded-lg bg-gray-50 " id="Penyaluran" role="tabpanel" aria-labelledby="Penyaluran-tab">
-        <p class="text-sm text-gray-500 dark:text-gray-400">{!! $campaign->penyaluran !!}</p>
+        <article class="prose md:text-base text-sm text-gray-500 dark:text-gray-400">{!! $campaign->penyaluran !!}</article>
     </div>
     <div class="hidden p-2 md:p-4 dark:bg-gray-800 rounded-lg bg-gray-50 " id="donasi" role="tabpanel" aria-labelledby="donasi-tab">
        <div class="grid grid-cols-1 gap-2">

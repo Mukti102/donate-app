@@ -19,7 +19,7 @@
                                <img src="{{asset('storage/'.setting('general.logo'))}}" alt="
                               {{setting('general.logo')}}">
                          </div>
-                         <h3 class="text-xl text-gray-700 dark:text-gray-200 font-bold">{{ config('app.name', 'YourApp') }}</h3>
+                         <h3 class="text-xl text-gray-700 dark:text-gray-200 font-bold">{{ setting('general.brand_name') }}</h3>
                      </div>
 
                      <p class="dark:text-gray-300 text-gray-500 leading-relaxed mb-6 text-sm">
@@ -134,9 +134,7 @@
                          </div>
                          <div>
                              <p class="text-sm  leading-relaxed">
-                                 Jl. Merdeka No. 123<br>
-                                 Jakarta Pusat, 10110<br>
-                                 Indonesia
+                                    {{ setting('general.address') }}
                              </p>
                          </div>
                      </div>
@@ -149,7 +147,7 @@
                                  </path>
                              </svg>
                          </div>
-                         <p class="text-sm ">+62 21 1234 5678</p>
+                         <p class="text-sm ">{{setting('general.phone')}}</p>
                      </div>
 
                      <div class="flex items-center space-x-3">
@@ -160,7 +158,7 @@
                                  </path>
                              </svg>
                          </div>
-                         <p class="text-sm ">info@yourapp.com</p>
+                         <p class="text-sm ">{{setting('general.email')}}</p>
                      </div>
                  </div>
 

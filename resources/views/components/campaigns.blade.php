@@ -4,9 +4,9 @@
             <x-heading1>Campaigns</x-heading1>
             {{-- buutons slide --}}
         </div>
-        <div class="swiper-wrapper mt-6">
+        <div class="swiper-wrapper  mt-6">
             @forelse ($campaigns->take(10) as $campaign )
-            <x-card :campaign="$campaign"/>
+                <x-card :campaign="$campaign"/>
             @empty
                 <h1>Tidak ada Data</h1>  
             @endforelse

@@ -120,28 +120,28 @@
           <div
               class="mobile-menu-overlay px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200/20 dark:border-gray-700/20">
               <a href="/"
-                  class="flex items-center dark:text-gray-200 space-x-3  text-white px-3 py-2 rounded-lg text-base font-medium shadow-lg">
+                  class="flex items-center text-gray-800 dark:text-gray-200 space-x-3   px-3 py-2 rounded-lg text-base font-medium ">
                   <span>Beranda</span>
               </a>
               <a href="{{route('about')}}"
-                  class="flex items-center dark:text-gray-200 space-x-3 {{ request()->is('about*') ? 'nav-active' : '' }} text-white px-3 py-2 rounded-lg text-base font-medium shadow-lg">
+                  class="flex items-center text-gray-800 dark:text-gray-200 space-x-3 {{ request()->is('about*') ? 'nav-active' : '' }}  px-3 py-2 rounded-lg text-base font-medium ">
                   <span>Profil</span>
               </a>
 
               <a href="{{ route('campaign.index') }}"
-                  class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 
-                  {{ request()->is('campaign*') ? 'nav-active' : '' }}hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-all duration-300">
+                  class="flex items-center space-x-3 text-gray-800 dark:text-gray-300 
+                  {{ request()->is('campaign*') ? 'nav-active' : '' }} hover:text-primary px-3 py-2 rounded-lg text-base font-medium transition-all duration-300">
                   <span>Campaign</span>
               </a>
 
               <a href="{{ route('article.index') }}"
-                  class="flex items-center dark:text-gray-200 space-x-3 text-gray-700 
+                  class="flex items-center dark:text-gray-200 text-gray-800 space-x-3 text-gray-700 
                   {{ request()->is('articles*') ? 'nav-active' : '' }}
                   dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-base font-medium transition-all duration-300">
                   <span>Laporan Kegiatan</span>
               </a>
               <a href="{{ route('laporan-keuangan.index') }}"
-                  class="flex items-center dark:text-gray-200 space-x-3 text-gray-700 
+                  class="flex items-center text-gray-800 dark:text-gray-200 space-x-3 text-gray-700 
                   {{ request()->is('laporan-keuangan*') ? 'nav-active' : '' }}
                   dark:text-gray-300 hover:bg-primary dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-lg text-base font-medium transition-all duration-300">
                   <span>Laporan Keuangan</span>

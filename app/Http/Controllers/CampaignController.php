@@ -59,7 +59,7 @@ class CampaignController extends Controller
      */
 
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'name' => "required",
             'campaign_id' => "required",
@@ -78,7 +78,8 @@ class CampaignController extends Controller
             \Midtrans\Config::$is3ds = setting('midrants.is_IS3DS') ?? config('service.midtrans.is3ds');
 
             // Buat Snap Token
-            $orderId = 'DON-' . uniqid();
+            $orderId = 'DON-' . Str::uuid();
+
             $payload = [
                 'transaction_details' => [
                     'order_id' => $orderId,
@@ -106,10 +107,20 @@ class CampaignController extends Controller
                 'status_pembayaran' => 'pending'
             ]);
             session(['donatur' => $donatur]);
+
+            Log::info('Midtrans config', [
+                'serverKey' => \Midtrans\Config::$serverKey,
+                'isProduction' => \Midtrans\Config::$isProduction,
+            ]);
+
+            $snapToken = Snap::getSnapToken($payload);
+            Log::info('Snap Token Generated: ' . $snapToken);
+
+
             // Redirect ke halaman pembayaran atau tampilkan snap
-            return redirect()->route('payment.detail',['reference' => $snapToken ]);
+            return redirect()->route('payment.detail', ['reference' => $snapToken]);
         } catch (Exception $th) {
-            Log::log('error',$th->getMessage());
+            Log::log('error', $th->getMessage());
             Alert::toast('Gagal', $th->getMessage());
             return back();
         }

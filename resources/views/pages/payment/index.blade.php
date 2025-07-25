@@ -135,7 +135,6 @@
         }
     </style>
 @endpush
-
 @section('content')
     <div class="min-h-screen py-12">
         <div class="md:max-w-5xl w-full mx-auto mt-10 md:mt-16 px-1 md:px-4">
@@ -336,7 +335,7 @@
 @endsection
 
 @push('script')
-    <script src="https://app.sandbox.midtrans.com/snap/snap.js"
+    <script src="{{config('service.midtrans.is_production') ? 'https://app.midtrans.com/snap/snap.js' : 'https://app.sandbox.midtrans.com/snap/snap.js'}}"
         data-client-key="{{ config('service.midtrans.client_key') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

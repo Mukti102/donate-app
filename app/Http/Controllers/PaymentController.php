@@ -18,6 +18,7 @@ class PaymentController extends Controller
     {
         $donatur = session('donatur');
         $snapToken = $reference;
+        Log::info('Snap Token: '.$snapToken);
         return view('pages.payment.index', compact('donatur', 'snapToken'));
     }
 

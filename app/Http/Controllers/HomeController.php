@@ -12,7 +12,9 @@ use App\Models\VideoInspiration;
 class HomeController extends Controller
 {
     public function index(){
-        $campaigns = Campaign::with('category','donaturs')->latest()->get();
+        $campaigns = Campaign::with(['category','donaturs' => function ($query) {
+            $query->where('status_pembayaran', 'success');
+        }])->latest()->get();
         $categories = CategoryCampaign::with('campaigns')->get();
         $donaturs = Donatur::all();
         $sliders = Slider::all();

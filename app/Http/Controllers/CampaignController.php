@@ -28,7 +28,11 @@ class CampaignController extends Controller
         $time = $request->input('time'); // 'terbaru' atau 'terlama'
         $categories = CategoryCampaign::all();
 
-        $query = Campaign::query();
+        $query = Campaign::with(['category', 'donaturs' => function ($query) {
+            $query->where('status_pembayaran', 'success');
+        }]);
+
+
 
         if ($categoryId) {
             $query->where('category_campaign_id', $categoryId);
@@ -133,7 +137,10 @@ class CampaignController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $campaign = Campaign::findOrFail($id);
+        $campaign = Campaign::with(['donaturs' => function ($query) {
+            $query->where('status_pembayaran', 'success');
+        }])->findOrFail($id);
+
         return view('pages.detailCampaign', compact('campaign'));
     }
 

@@ -27,7 +27,7 @@
         <!-- Progress Section -->
         <div class="mb-4 sm:mb-3 md:mb-4">
             @php
-            $donaturs = $campaign->donaturs->sum('amount');
+            $donaturs = $campaign->donaturs->where('status_pembayaran','success')->sum('amount');
             $formattedDonaturs = 'Rp ' . number_format($donaturs, 0, ',', '.');
             $target = $campaign->target;
             $formattedTarget = 'Rp ' . number_format($target, 0, ',', '.');
@@ -60,7 +60,7 @@
         <!-- Stats -->
         <div class="flex justify-between items-center py-3 sm:py-2 md:py-3 px-4 sm:px-3 md:px-4 dark:border-1 dark:border-gray-700 bg-gray-50 bg-dark rounded-lg">
             <div class="text-center flex-1">
-                <div class="font-bold text-gray-900 dark:text-gray-200 text-lg sm:text-xs md:text-sm">{{ $campaign->donaturs->count() ?? 0 }}</div>
+                <div class="font-bold text-gray-900 dark:text-gray-200 text-lg sm:text-xs md:text-sm">{{ $campaign->donaturs->where('status_pembayaran','success')->count() ?? 0 }}</div>
                 <div class="text-sm sm:text-[10px] md:text-xs dark:text-gray-300 text-gray-600 mt-1">Donatur</div>
             </div>
             <div class="w-px h-10 sm:h-7 md:h-8 bg-gray-300 mx-4"></div>
